@@ -8,7 +8,7 @@
 LOG "Starting paper-pusher..."
 LOG "Gathering subnet IP address"
 
-subnet=$(hostname -I | awk '{print $1}' | awk -F'.' '{print $1"."$2"."$3}')
+subnet=$(ip -4 addr show dev wlan0cli | awk '/inet /{print $2}' | head -n1 | cut -d/ -f1 | awk -F'.' '{print $1"."$2"."$3}')
 
 LOG "Subnet identified as $subnet.0/24"
 LOG "Scanning subnet for printers..."
