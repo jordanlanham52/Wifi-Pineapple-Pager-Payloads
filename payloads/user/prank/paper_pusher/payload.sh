@@ -26,7 +26,7 @@ if [[ -n $IP ]]; then
 		echo -e "$printtext\n\f"
 		done | nc -q 1 $IP 9100
  		LOG "Job sent successfully!"
- 		LOG "Time to clean up the floor\n"
+ 		ALERT "Time to clean up the floor\n"
 else
-    LOG "No printers found on the subnet. Exiting."
+    ALERT "No printers found on the subnet. Exiting."
 fi
