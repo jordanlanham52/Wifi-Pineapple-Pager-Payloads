@@ -1,6 +1,6 @@
 #!/bin/bash
 # Title: TEST_DUAL_INPUT
-# Description: A quick test payload
+# Description: A quick dual input test payload
 # Author: Jordan Lanham
 # Date: 2025-12-22
 # Version: 1.0

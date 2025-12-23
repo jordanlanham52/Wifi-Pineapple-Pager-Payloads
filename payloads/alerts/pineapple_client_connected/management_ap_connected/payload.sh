@@ -1,0 +1,21 @@
+#!/bin/bash
+# Title: Management AP Client Connected
+# Description: Alerts when a device connects to the Pager Management AP 
+# Author: Jordan Lanham
+# Date: 2025-12-23
+# Version: 1.0
+
+alert_ssid="${_ALERT_CLIENT_CONNECTED_SSID:-}"
+client_mac="${_ALERT_CLIENT_CONNECTED_CLIENT_MAC_ADDRESS:-unknown}"
+ap_mac="${_ALERT_CLIENT_CONNECTED_AP_MAC_ADDRESS:-unknown}"
+summary="${_ALERT_CLIENT_CONNECTED_SUMMARY:-Client connected: ${client_mac}}"
+mgmt_ssid="Pager"
+
+
+if [ "$alert_ssid" != "$mgmt_ssid" ]; then
+    exit 0
+fi
+
+ALERT "Management AP client connected: ${client_mac}"
+RINGTONE Hak5_The_Planet:d=4,o=5,b=450:c6,c6,g5,c6,p,g5,a#5,c6,p,f5,g5,a#5,c6
+LOG blue "Management AP client connected: client=${client_mac} ap=${ap_mac} ssid=${alert_ssid}"
